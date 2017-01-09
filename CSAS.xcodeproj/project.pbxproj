@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1537CE61422441D48E077344 /* Pods_CSAS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51EB688EF76367621610F35 /* Pods_CSAS.framework */; };
 		8C2A36BD1E23D9FC00F86B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36BC1E23D9FC00F86B6A /* AppDelegate.swift */; };
-		8C2A36BF1E23D9FC00F86B6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36BE1E23D9FC00F86B6A /* ViewController.swift */; };
 		8C2A36C21E23D9FC00F86B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A36C01E23D9FC00F86B6A /* Main.storyboard */; };
 		8C2A36C41E23D9FC00F86B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */; };
 		8C2A36C71E23D9FC00F86B6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A36C51E23D9FC00F86B6A /* LaunchScreen.storyboard */; };
+		8C2A36D11E23DA3E00F86B6A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36CF1E23DA3E00F86B6A /* Account.swift */; };
+		8C2A36D21E23DA3E00F86B6A /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D01E23DA3E00F86B6A /* Accounts.swift */; };
+		8C2A36D41E23DA4400F86B6A /* TransparentAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85A2A79324ECEF9858825D1E /* Pods-CSAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSAS/Pods-CSAS.release.xcconfig"; sourceTree = "<group>"; };
 		8C2A36B91E23D9FC00F86B6A /* CSAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2A36BC1E23D9FC00F86B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C2A36BE1E23D9FC00F86B6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C2A36C11E23D9FC00F86B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C2A36C61E23D9FC00F86B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C2A36C81E23D9FC00F86B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2A36CF1E23DA3E00F86B6A /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		8C2A36D01E23DA3E00F86B6A /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentAccountsTableViewController.swift; sourceTree = "<group>"; };
+		AB8F426F5B456264B3118078 /* Pods-CSAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSAS/Pods-CSAS.debug.xcconfig"; sourceTree = "<group>"; };
+		D51EB688EF76367621610F35 /* Pods_CSAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSAS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1537CE61422441D48E077344 /* Pods_CSAS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00C70238A5874D18B993AC37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D51EB688EF76367621610F35 /* Pods_CSAS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F01768EE0A846B6C799A9E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB8F426F5B456264B3118078 /* Pods-CSAS.debug.xcconfig */,
+				85A2A79324ECEF9858825D1E /* Pods-CSAS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C2A36B01E23D9FC00F86B6A = {
 			isa = PBXGroup;
 			children = (
 				8C2A36BB1E23D9FC00F86B6A /* CSAS */,
 				8C2A36BA1E23D9FC00F86B6A /* Products */,
+				2F01768EE0A846B6C799A9E9 /* Pods */,
+				00C70238A5874D18B993AC37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +82,24 @@
 		8C2A36BB1E23D9FC00F86B6A /* CSAS */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A36CE1E23DA3400F86B6A /* API */,
 				8C2A36BC1E23D9FC00F86B6A /* AppDelegate.swift */,
-				8C2A36BE1E23D9FC00F86B6A /* ViewController.swift */,
+				8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */,
 				8C2A36C01E23D9FC00F86B6A /* Main.storyboard */,
 				8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */,
 				8C2A36C51E23D9FC00F86B6A /* LaunchScreen.storyboard */,
 				8C2A36C81E23D9FC00F86B6A /* Info.plist */,
 			);
 			path = CSAS;
+			sourceTree = "<group>";
+		};
+		8C2A36CE1E23DA3400F86B6A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A36CF1E23DA3E00F86B6A /* Account.swift */,
+				8C2A36D01E23DA3E00F86B6A /* Accounts.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C2A36CB1E23D9FC00F86B6A /* Build configuration list for PBXNativeTarget "CSAS" */;
 			buildPhases = (
+				BBE6A9E83A11382FBA74A7C1 /* [CP] Check Pods Manifest.lock */,
 				8C2A36B51E23D9FC00F86B6A /* Sources */,
 				8C2A36B61E23D9FC00F86B6A /* Frameworks */,
 				8C2A36B71E23D9FC00F86B6A /* Resources */,
+				BB5EA463D46A8620ECE0B4D6 /* [CP] Embed Pods Frameworks */,
+				772C5F9C52D673373E2B79BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +173,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		772C5F9C52D673373E2B79BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSAS/Pods-CSAS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB5EA463D46A8620ECE0B4D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSAS/Pods-CSAS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBE6A9E83A11382FBA74A7C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8C2A36B51E23D9FC00F86B6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C2A36BF1E23D9FC00F86B6A /* ViewController.swift in Sources */,
+				8C2A36D21E23DA3E00F86B6A /* Accounts.swift in Sources */,
 				8C2A36BD1E23D9FC00F86B6A /* AppDelegate.swift in Sources */,
+				8C2A36D11E23DA3E00F86B6A /* Account.swift in Sources */,
+				8C2A36D41E23DA4400F86B6A /* TransparentAccountsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,10 +350,12 @@
 		};
 		8C2A36CC1E23D9FC00F86B6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB8F426F5B456264B3118078 /* Pods-CSAS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = URQ7BT5GNP;
 				INFOPLIST_FILE = CSAS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kuba.CSAS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,10 +365,12 @@
 		};
 		8C2A36CD1E23D9FC00F86B6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85A2A79324ECEF9858825D1E /* Pods-CSAS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = URQ7BT5GNP;
 				INFOPLIST_FILE = CSAS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kuba.CSAS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +397,7 @@
 				8C2A36CD1E23D9FC00F86B6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
