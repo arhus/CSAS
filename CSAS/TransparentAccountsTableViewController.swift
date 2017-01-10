@@ -60,9 +60,13 @@ class TransparentAccountsTableViewController: UITableViewController {
             self.accounts = self.accounts! + self.accountsWrapper!.accounts!
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AccountDetailTableViewController
+        destinationVC.accountDetail = sender as? Accounts
+    }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.accounts == nil {
             return 0
@@ -74,9 +78,9 @@ class TransparentAccountsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if self.accounts != nil && self.accounts!.count >= indexPath.row {
-            let accounts = self.accounts![indexPath.row]
-            cell.textLabel?.text = accounts.name
-            cell.detailTextLabel?.text = String(format:"%.2f", accounts.balance!)
+            let account = self.accounts![indexPath.row]
+            cell.textLabel?.text = account.name
+            cell.detailTextLabel?.text = String(format:"%.2f", account.balance!)
             
             // Check if we need to load more accounts
             let rowsToLoadFromBottom = 5;
@@ -95,7 +99,22 @@ class TransparentAccountsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let accounts = self.accounts![indexPath.row]
-        print(accounts.accountNumber!)
+        
+        Accounts.getAccountDetails(accountNumber: accounts.accountNumber!) { result in
+            if let error = result.error {
+                self.isLoadingAccounts = false
+                print("Error while loading account details")
+            }
+            let accountDetail = result.value
+            self.performSegue(withIdentifier: "showDetail", sender: accountDetail)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if self.accounts != nil {
+            return "Accounts loaded: \(self.accounts!.count)"
+        }
+        return nil
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

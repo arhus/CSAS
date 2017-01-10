@@ -15,6 +15,8 @@
 		8C2A36D11E23DA3E00F86B6A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36CF1E23DA3E00F86B6A /* Account.swift */; };
 		8C2A36D21E23DA3E00F86B6A /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D01E23DA3E00F86B6A /* Accounts.swift */; };
 		8C2A36D41E23DA4400F86B6A /* TransparentAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */; };
+		8C2A36D71E24F69700F86B6A /* WebApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D61E24F69700F86B6A /* WebApiKey.swift */; };
+		8C59FD541E2507D800666025 /* AccountDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59FD531E2507D800666025 /* AccountDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		8C2A36CF1E23DA3E00F86B6A /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8C2A36D01E23DA3E00F86B6A /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentAccountsTableViewController.swift; sourceTree = "<group>"; };
+		8C2A36D61E24F69700F86B6A /* WebApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiKey.swift; sourceTree = "<group>"; };
+		8C59FD531E2507D800666025 /* AccountDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailTableViewController.swift; sourceTree = "<group>"; };
 		AB8F426F5B456264B3118078 /* Pods-CSAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSAS/Pods-CSAS.debug.xcconfig"; sourceTree = "<group>"; };
 		D51EB688EF76367621610F35 /* Pods_CSAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSAS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,9 +86,11 @@
 		8C2A36BB1E23D9FC00F86B6A /* CSAS */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A36D51E24F67F00F86B6A /* Utitities */,
 				8C2A36CE1E23DA3400F86B6A /* API */,
 				8C2A36BC1E23D9FC00F86B6A /* AppDelegate.swift */,
 				8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */,
+				8C59FD531E2507D800666025 /* AccountDetailTableViewController.swift */,
 				8C2A36C01E23D9FC00F86B6A /* Main.storyboard */,
 				8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */,
 				8C2A36C51E23D9FC00F86B6A /* LaunchScreen.storyboard */,
@@ -100,6 +106,14 @@
 				8C2A36D01E23DA3E00F86B6A /* Accounts.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		8C2A36D51E24F67F00F86B6A /* Utitities */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A36D61E24F69700F86B6A /* WebApiKey.swift */,
+			);
+			name = Utitities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +242,8 @@
 			files = (
 				8C2A36D21E23DA3E00F86B6A /* Accounts.swift in Sources */,
 				8C2A36BD1E23D9FC00F86B6A /* AppDelegate.swift in Sources */,
+				8C59FD541E2507D800666025 /* AccountDetailTableViewController.swift in Sources */,
+				8C2A36D71E24F69700F86B6A /* WebApiKey.swift in Sources */,
 				8C2A36D11E23DA3E00F86B6A /* Account.swift in Sources */,
 				8C2A36D41E23DA4400F86B6A /* TransparentAccountsTableViewController.swift in Sources */,
 			);
