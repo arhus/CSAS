@@ -15,6 +15,11 @@ class AccountDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AccountDetailTableViewController
+        destinationVC.accountDetail = sender as? Accounts
+    }
 
     // MARK: - Table view data source
 
@@ -58,5 +63,11 @@ class AccountDetailTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 9 {
+            self.performSegue(withIdentifier: "showTransactionHistory", sender: accountDetail.accountNumber)
+        }
     }
 }

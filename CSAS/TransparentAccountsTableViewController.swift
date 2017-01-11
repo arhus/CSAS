@@ -101,6 +101,7 @@ class TransparentAccountsTableViewController: UITableViewController {
         let accounts = self.accounts![indexPath.row]
         
         Accounts.getAccountDetails(accountNumber: accounts.accountNumber!) { result in
+            tableView.deselectRow(at: indexPath, animated: true)
             if let error = result.error {
                 self.isLoadingAccounts = false
                 print("Error while loading account details")

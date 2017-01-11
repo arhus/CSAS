@@ -13,6 +13,8 @@ enum BackendError: Error {
     case objectSerialization(reason: String)
 }
 
+// MARK: Accounts
+
 enum AccountFields: String {
     case name = "name"
     case accountNumber = "accountNumber"
@@ -28,6 +30,22 @@ enum AccountFields: String {
 
 class AccountWrapper {
     var accounts: [Accounts]?
+    var count: Int?
+    var next: String?
+}
+
+// MARK: Transaction history
+
+enum TransactionHistoryFields: String {
+    case amount = "amount"
+    case type = "type"
+    case dueDate = "dueDate"
+    case processingDate = "processingDate"
+    case sender = "sender"
+}
+
+class TransactionHistoryWrapper {
+    var history: [TransactionHistory]?
     var count: Int?
     var next: String?
 }
