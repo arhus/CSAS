@@ -26,7 +26,7 @@ class TransactionHistory {
     
     // MARK: Transaction history
     class func transactions(_ accountNumber: String, _ page: String) -> String {
-        return "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)/transactions?page=\(page)"
+        return "\(BaseURL)/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)/transactions?page=\(page)"
     }
     
     fileprivate class func requestTransactionHistory(accountNumber: String, page: String, completionHandler: @escaping (Result<TransactionHistoryWrapper>) -> Void) {

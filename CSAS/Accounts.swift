@@ -36,11 +36,11 @@ class Accounts {
     
     // MARK: Accounts
     class func accounts() -> String {
-        return "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts"
+        return "\(BaseURL)/sandbox/webapi/api/v2/transparentAccounts"
     }
     
     class func accountDetail(_ accountNumber: String) -> String {
-        return "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)"
+        return "\(BaseURL)/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)"
     }
     
     fileprivate class func getAccountAtPath(_ path: String, completionHandler: @escaping (Result<AccountWrapper>) -> Void) {
@@ -97,7 +97,7 @@ class Accounts {
         
         let wrapper = AccountWrapper()
         if let nextPageNumber = json["nextPage"] as? Int{
-            let url = "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts?page=\(nextPageNumber)"
+            let url = "\(BaseURL)/sandbox/webapi/api/v2/transparentAccounts?page=\(nextPageNumber)"
             wrapper.next = url
             print(url)
         }
