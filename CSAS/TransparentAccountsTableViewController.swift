@@ -10,19 +10,19 @@ import UIKit
 
 class TransparentAccountsTableViewController: UITableViewController {
 
-    var accounts: [Accounts]?
+    var accounts: [Accounts] = []
     var accountsWrapper: AccountWrapper?
     var isLoadingAccounts = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadFirstAccounts()
+        loadFirstAccounts()
     }
     
     func loadFirstAccounts() {
         isLoadingAccounts = true
         Accounts.getAccounts { result in
-            if let error = result.error {
+            if result.error != nil {
                 self.isLoadingAccounts = false
                 print("Error while loading first accounts")
             }
@@ -34,31 +34,29 @@ class TransparentAccountsTableViewController: UITableViewController {
     }
     
     func loadMoreAccounts() {
-        self.isLoadingAccounts = true
-        if let accounts = self.accounts,
-            let wrapper = self.accountsWrapper,
-            let totalAccountsCount = wrapper.count,
-            accounts.count < totalAccountsCount {
-            Accounts.getMoreAccounts(accountsWrapper) { result in
-                if let error = result.error {
-                    self.isLoadingAccounts = false
-                    print("Could not load more accounts")
-                }
-                let moreWrapper = result.value
-                self.addAccountsFromWrapper(moreWrapper)
-                self.isLoadingAccounts = false
-                self.tableView.reloadData()
-            }
-        }
+        isLoadingAccounts = true
+        guard let wrapper = accountsWrapper,
+			  let totalAccountsCount = wrapper.count,
+			  accounts.count < totalAccountsCount else { return }
+		
+		Accounts.getMoreAccounts(accountsWrapper) { result in
+			if result.error != nil {
+				self.isLoadingAccounts = false
+				print("Could not load more accounts")
+			}
+			let moreWrapper = result.value
+			self.addAccountsFromWrapper(moreWrapper)
+			self.isLoadingAccounts = false
+			self.tableView.reloadData()
+		}
     }
     
     func addAccountsFromWrapper(_ wrapper: AccountWrapper?) {
-        self.accountsWrapper = wrapper
-        if self.accounts == nil {
-            self.accounts = self.accountsWrapper?.accounts
-        } else if self.accountsWrapper != nil && self.accountsWrapper!.accounts != nil {
-            self.accounts = self.accounts! + self.accountsWrapper!.accounts!
-        }
+        accountsWrapper = wrapper
+		
+		if let accountsWrapper = accountsWrapper, let newAccounts = accountsWrapper.accounts {
+			accounts += newAccounts
+		}
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,28 +66,25 @@ class TransparentAccountsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.accounts == nil {
-            return 0
-        }
-        return self.accounts!.count
+        return accounts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        if self.accounts != nil && self.accounts!.count >= indexPath.row {
-            let account = self.accounts![indexPath.row]
+        if accounts.count >= indexPath.row {
+            let account = accounts[indexPath.row]
             cell.textLabel?.text = account.name
             cell.detailTextLabel?.text = String(format:"%.2f", account.balance!)
             
             // Check if we need to load more accounts
             let rowsToLoadFromBottom = 5;
-            let rowsLoaded = self.accounts!.count
-            if (!self.isLoadingAccounts && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))) {
-                let totalRows = self.accountsWrapper!.count!
+            let rowsLoaded = accounts.count
+            if (!isLoadingAccounts && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))) {
+                let totalRows = accountsWrapper!.count!
                 let remainingAccountsToLoad = totalRows - rowsLoaded;
                 if (remainingAccountsToLoad > 0) {
-                    self.loadMoreAccounts()
+                    loadMoreAccounts()
                 }
             }
         }
@@ -98,11 +93,11 @@ class TransparentAccountsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let accounts = self.accounts![indexPath.row]
+        let account = accounts[indexPath.row]
         
-        Accounts.getAccountDetails(accountNumber: accounts.accountNumber!) { result in
+        Accounts.getAccountDetails(accountNumber: account.accountNumber!) { result in
             tableView.deselectRow(at: indexPath, animated: true)
-            if let error = result.error {
+            if result.error != nil {
                 self.isLoadingAccounts = false
                 print("Error while loading account details")
             }
@@ -112,10 +107,7 @@ class TransparentAccountsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if self.accounts != nil {
-            return "Accounts loaded: \(self.accounts!.count)"
-        }
-        return nil
+		return "Accounts loaded: \(accounts.count)"
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

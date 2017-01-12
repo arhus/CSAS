@@ -45,7 +45,7 @@ enum TransactionHistoryFields: String {
 }
 
 class TransactionHistoryWrapper {
-    var history: [TransactionHistory]?
+    var transactions: [TransactionHistory]?
     var count: Int?
     var next: String?
 }

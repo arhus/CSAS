@@ -17,8 +17,8 @@ class AccountDetailTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AccountDetailTableViewController
-        destinationVC.accountDetail = sender as? Accounts
+        let destinationVC = segue.destination as! TransactionHistoryTableViewController
+        destinationVC.accountNumber = accountDetail.accountNumber
     }
 
     // MARK: - Table view data source
@@ -59,15 +59,17 @@ class AccountDetailTableViewController: UITableViewController {
             cell.textLabel?.text = "IBAN"
             cell.detailTextLabel?.text = accountDetail.iban
         default:
+            cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = "Show transaction history"
+            cell.detailTextLabel?.text = ""
         }
-
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 9 {
-            self.performSegue(withIdentifier: "showTransactionHistory", sender: accountDetail.accountNumber)
+            self.performSegue(withIdentifier: "showTransactionHistory", sender: nil)
         }
     }
 }

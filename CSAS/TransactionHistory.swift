@@ -10,27 +10,29 @@ import Foundation
 import Alamofire
 
 class TransactionHistory {
-    var amount: Dictionary<String, Any>?
+	var amount: [String: Any] = [:]
     var type: String?
     var dueDate: String?
     var processingDate: String?
-    var sender: Dictionary<String, Any>?
+    var sender: [String: Any]?
     
     required init(json: [String: Any]) {
-        self.amount = json[TransactionHistoryFields.amount.rawValue] as? Dictionary<String, Any>
+		print("json:", json)
+		self.amount = json[TransactionHistoryFields.amount.rawValue] as? [String: Any] ?? [:]
         self.type = json[TransactionHistoryFields.type.rawValue] as? String
         self.dueDate = json[TransactionHistoryFields.dueDate.rawValue] as? String
         self.processingDate = json[TransactionHistoryFields.processingDate.rawValue] as? String
-        self.sender = json[TransactionHistoryFields.sender.rawValue] as? Dictionary<String, Any>
+        self.sender = json[TransactionHistoryFields.sender.rawValue] as? [String: Any]
     }
     
     // MARK: Transaction history
-    class func transactions(_ accountNumber: String) -> String {
-        return "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)/transactions"
+    class func transactions(_ accountNumber: String, _ page: String) -> String {
+        return "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)/transactions?page=\(page)"
     }
     
-    fileprivate class func requestTransactionHistory(accountNumber: String, completionHandler: @escaping (Result<TransactionHistoryWrapper>) -> Void) {
-        let path = TransactionHistory.transactions(accountNumber)
+    fileprivate class func requestTransactionHistory(accountNumber: String, page: String, completionHandler: @escaping (Result<TransactionHistoryWrapper>) -> Void) {
+        let path = TransactionHistory.transactions(accountNumber, page)
+        print(path)
         guard var urlComponents = URLComponents(string: path) else {
             let error = BackendError.urlError(reason: "Tried to load an invalid URL")
             completionHandler(.failure(error))
@@ -60,33 +62,31 @@ class TransactionHistory {
     }
     
     class func getTransactionHistory(accountNumber: String, _ completionHandler: @escaping (Result<TransactionHistoryWrapper>) -> Void) {
-        requestTransactionHistory(accountNumber: accountNumber, completionHandler: completionHandler)
+        requestTransactionHistory(accountNumber: accountNumber, page: "0", completionHandler: completionHandler)
     }
     
-    class func getMoreTransactionHistory(accountNumber: String, _ wrapper: AccountWrapper?, completionHandler: @escaping (Result<TransactionHistoryWrapper>) -> Void) {
+    class func getMoreTransactionHistory(accountNumber: String, _ wrapper: TransactionHistoryWrapper?, completionHandler: @escaping (Result<TransactionHistoryWrapper>) -> Void) {
         guard let nextURL = wrapper?.next else {
             let error = BackendError.objectSerialization(reason: "Did not get wrapper for more transaction history")
             completionHandler(.failure(error))
             return
         }
-        requestTransactionHistory(accountNumber: nextURL, completionHandler: completionHandler)
+        requestTransactionHistory(accountNumber: accountNumber, page: nextURL, completionHandler: completionHandler)
     }
     
     private class func historyArrayFromResponse(accountNumber: String, _ response: DataResponse<Any>) -> Result<TransactionHistoryWrapper> {
-        guard response.result.error == nil else {
-            print(response.result.error!)
-            return .failure(response.result.error!)
-        }
-        
+		if let error = response.result.error {
+			print(error)
+			return .failure(error)
+		}
+		
         guard let json = response.result.value as? [String: Any] else {
             return .failure(BackendError.objectSerialization(reason: "Did not get JSON"))
         }
         
         let wrapper = TransactionHistoryWrapper()
-        if let nextPageNumber = json["nextPage"] as? Int{
-            let url = "https://api.csas.cz/sandbox/webapi/api/v2/transparentAccounts/\(accountNumber)/transactions?page=\(nextPageNumber)"
-            wrapper.next = url
-            print(url)
+        if let nextPageNumber = json["nextPage"] as? Int {
+            wrapper.next = String(nextPageNumber)
         }
         wrapper.count = json["recordCount"] as? Int
         
@@ -97,7 +97,7 @@ class TransactionHistory {
                 allHistoryTransactions.append(history)
             }
         }
-        wrapper.history = allHistoryTransactions
+        wrapper.transactions = allHistoryTransactions
         return .success(wrapper)
     }
 }

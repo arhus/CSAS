@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,11 +41,11 @@
             </objects>
             <point key="canvasLocation" x="332" y="165.96701649175412"/>
         </scene>
-        <!--Account Detail Table View Controller-->
+        <!--Account detail-->
         <scene sceneID="cip-fG-FOv">
             <objects>
                 <tableViewController id="n9w-gJ-pNC" customClass="AccountDetailTableViewController" customModule="CSAS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KVl-oz-hyg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KVl-oz-hyg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,7 +64,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ffy-d4-d6Q">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ffy-d4-d6Q">
                                             <rect key="frame" x="316" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -79,6 +80,7 @@
                             <outlet property="delegate" destination="n9w-gJ-pNC" id="nL7-8L-ZjN"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Account detail" id="IL1-5q-EHT"/>
                     <connections>
                         <segue destination="aLI-3i-9G9" kind="show" identifier="showTransactionHistory" id="8QT-F6-Ap1"/>
                     </connections>
@@ -87,22 +89,97 @@
             </objects>
             <point key="canvasLocation" x="1094" y="164"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Transaction history-->
         <scene sceneID="8Xt-B1-WnS">
             <objects>
-                <tableViewController id="aLI-3i-9G9" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yqh-gj-bxv">
+                <tableViewController id="aLI-3i-9G9" customClass="TransactionHistoryTableViewController" customModule="CSAS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="201" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yqh-gj-bxv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2CM-ay-pnS">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="201" id="2CM-ay-pnS" customClass="TransactionsTableViewCell" customModule="CSAS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="201"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2CM-ay-pnS" id="POB-pP-rT8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j8d-Zt-Ifr">
+                                            <rect key="frame" x="131" y="107" width="113" height="82"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eot-XH-qrI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="113" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value: 10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkW-1y-k5H">
+                                                    <rect key="frame" x="0.0" y="20.5" width="113" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precision: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3V1-jT-vZG">
+                                                    <rect key="frame" x="0.0" y="41" width="113" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency: CZK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ik-xJ-jHa">
+                                                    <rect key="frame" x="0.0" y="61.5" width="113" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X9W-24-tJD">
+                                            <rect key="frame" x="8" y="8" width="285" height="82"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type: 80110" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHz-VI-lS7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date:2016-10-25T00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6h-sz-s2C">
+                                                    <rect key="frame" x="0.0" y="20.5" width="285" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sender: Lenka Křížová" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cN-s1-gls">
+                                                    <rect key="frame" x="0.0" y="41" width="285" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number: 000000-8109055001/0800" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEs-E1-CSO">
+                                                    <rect key="frame" x="0.0" y="61.5" width="285" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="X9W-24-tJD" firstAttribute="top" secondItem="POB-pP-rT8" secondAttribute="topMargin" id="57i-zb-C2X"/>
+                                        <constraint firstItem="j8d-Zt-Ifr" firstAttribute="centerX" secondItem="POB-pP-rT8" secondAttribute="centerX" id="N13-8l-Kdv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="j8d-Zt-Ifr" secondAttribute="bottom" constant="3" id="cZG-xa-LKb"/>
+                                        <constraint firstItem="X9W-24-tJD" firstAttribute="leading" secondItem="POB-pP-rT8" secondAttribute="leadingMargin" id="mRj-Sl-eI7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="accountNumber" destination="qEs-E1-CSO" id="hH7-Fx-hIL"/>
+                                    <outlet property="amount" destination="EkW-1y-k5H" id="OZA-Ph-tAe"/>
+                                    <outlet property="currency" destination="4Ik-xJ-jHa" id="fNB-UA-ETq"/>
+                                    <outlet property="dueDate" destination="d6h-sz-s2C" id="zQW-D2-OTm"/>
+                                    <outlet property="precision" destination="3V1-jT-vZG" id="Etg-Tz-pxK"/>
+                                    <outlet property="sender" destination="2cN-s1-gls" id="Qhq-yv-DjA"/>
+                                    <outlet property="type" destination="IHz-VI-lS7" id="ssv-sb-n70"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -110,18 +187,20 @@
                             <outlet property="delegate" destination="aLI-3i-9G9" id="yqO-vH-o2V"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Transaction history" id="Ypm-xW-2px"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbK-PR-dLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="163"/>
+            <point key="canvasLocation" x="1845.5999999999999" y="162.3688155922039"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xw6-dG-pbb">
             <objects>
                 <navigationController id="hTI-zl-8F0" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TNh-Lb-Shr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TNh-Lb-Shr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.25197303295135498" green="0.49701529741287231" blue="0.79692095518112183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
