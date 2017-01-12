@@ -12,7 +12,7 @@
 		8C2A36C21E23D9FC00F86B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A36C01E23D9FC00F86B6A /* Main.storyboard */; };
 		8C2A36C41E23D9FC00F86B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */; };
 		8C2A36C71E23D9FC00F86B6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A36C51E23D9FC00F86B6A /* LaunchScreen.storyboard */; };
-		8C2A36D11E23DA3E00F86B6A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36CF1E23DA3E00F86B6A /* Account.swift */; };
+		8C2A36D11E23DA3E00F86B6A /* DataSturcture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36CF1E23DA3E00F86B6A /* DataSturcture.swift */; };
 		8C2A36D21E23DA3E00F86B6A /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D01E23DA3E00F86B6A /* Accounts.swift */; };
 		8C2A36D41E23DA4400F86B6A /* TransparentAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */; };
 		8C2A36D71E24F69700F86B6A /* WebApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A36D61E24F69700F86B6A /* WebApiKey.swift */; };
@@ -30,7 +30,7 @@
 		8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C2A36C61E23D9FC00F86B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C2A36C81E23D9FC00F86B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C2A36CF1E23DA3E00F86B6A /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		8C2A36CF1E23DA3E00F86B6A /* DataSturcture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSturcture.swift; sourceTree = "<group>"; };
 		8C2A36D01E23DA3E00F86B6A /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentAccountsTableViewController.swift; sourceTree = "<group>"; };
 		8C2A36D61E24F69700F86B6A /* WebApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiKey.swift; sourceTree = "<group>"; };
@@ -92,13 +92,11 @@
 		8C2A36BB1E23D9FC00F86B6A /* CSAS */ = {
 			isa = PBXGroup;
 			children = (
-				8C2A36D51E24F67F00F86B6A /* Utitities */,
 				8C2A36CE1E23DA3400F86B6A /* API */,
+				8C890F4D1E2790EE004619B4 /* Views */,
+				8C2A36D51E24F67F00F86B6A /* Utitities */,
+				8C890F4C1E2790E0004619B4 /* ViewControllers */,
 				8C2A36BC1E23D9FC00F86B6A /* AppDelegate.swift */,
-				8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */,
-				8C59FD531E2507D800666025 /* AccountDetailTableViewController.swift */,
-				8C890F481E267051004619B4 /* TransactionHistoryTableViewController.swift */,
-				8C890F4A1E268228004619B4 /* TransactionsTableViewCell.swift */,
 				8C2A36C01E23D9FC00F86B6A /* Main.storyboard */,
 				8C2A36C31E23D9FC00F86B6A /* Assets.xcassets */,
 				8C2A36C51E23D9FC00F86B6A /* LaunchScreen.storyboard */,
@@ -110,7 +108,7 @@
 		8C2A36CE1E23DA3400F86B6A /* API */ = {
 			isa = PBXGroup;
 			children = (
-				8C2A36CF1E23DA3E00F86B6A /* Account.swift */,
+				8C2A36CF1E23DA3E00F86B6A /* DataSturcture.swift */,
 				8C2A36D01E23DA3E00F86B6A /* Accounts.swift */,
 				8C59FD571E25142A00666025 /* TransactionHistory.swift */,
 			);
@@ -123,6 +121,24 @@
 				8C2A36D61E24F69700F86B6A /* WebApiKey.swift */,
 			);
 			name = Utitities;
+			sourceTree = "<group>";
+		};
+		8C890F4C1E2790E0004619B4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A36D31E23DA4400F86B6A /* TransparentAccountsTableViewController.swift */,
+				8C59FD531E2507D800666025 /* AccountDetailTableViewController.swift */,
+				8C890F481E267051004619B4 /* TransactionHistoryTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8C890F4D1E2790EE004619B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C890F4A1E268228004619B4 /* TransactionsTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +176,7 @@
 				TargetAttributes = {
 					8C2A36B81E23D9FC00F86B6A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FDEPQUD75A;
+						DevelopmentTeam = URQ7BT5GNP;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -256,7 +272,7 @@
 				8C59FD541E2507D800666025 /* AccountDetailTableViewController.swift in Sources */,
 				8C2A36D71E24F69700F86B6A /* WebApiKey.swift in Sources */,
 				8C890F491E267051004619B4 /* TransactionHistoryTableViewController.swift in Sources */,
-				8C2A36D11E23DA3E00F86B6A /* Account.swift in Sources */,
+				8C2A36D11E23DA3E00F86B6A /* DataSturcture.swift in Sources */,
 				8C2A36D41E23DA4400F86B6A /* TransparentAccountsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,11 +397,11 @@
 			baseConfigurationReference = AB8F426F5B456264B3118078 /* Pods-CSAS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FDEPQUD75A;
+				DEVELOPMENT_TEAM = URQ7BT5GNP;
 				INFOPLIST_FILE = CSAS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.studnicka.CSAS;
+				PRODUCT_BUNDLE_IDENTIFIER = Kuba.CSAS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -396,11 +412,11 @@
 			baseConfigurationReference = 85A2A79324ECEF9858825D1E /* Pods-CSAS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FDEPQUD75A;
+				DEVELOPMENT_TEAM = URQ7BT5GNP;
 				INFOPLIST_FILE = CSAS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.studnicka.CSAS;
+				PRODUCT_BUNDLE_IDENTIFIER = Kuba.CSAS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -70,12 +70,17 @@ class TransactionHistoryTableViewController: UITableViewController {
 		
 		let transaction = transactions[indexPath.row]
 		
-		/*cell.textLabel?.text = transaction.dueDate
-		cell.detailTextLabel?.text = transaction.processingDate*/
+        cell.type.text = transaction.type
+        cell.dueDate.text = transaction.dueDate
+        cell.sender.text = transaction.sender["name"] as? String ?? ""
+        
+        if let number = transaction.sender["accountNumber"], let bankCode = transaction.sender["bankCode"] {
+            cell.accountNumber.text = "\(number)/\(bankCode)"
+        }
+        
 		cell.amount.text = String(transaction.amount["value"] as? Int ?? 0)
-		
-//            cell.currency.text = "Currency: \(transaction.amount?[\"currency\"] as! String?)"
-		dump(transaction)
+		cell.currency.text = String(transaction.amount["currency"] as? String ?? "")
+        cell.precision.text = String(transaction.amount["precision"] as? Int ?? 0)
 		
 		// Check if we need to load more accounts
 		let rowsToLoadFromBottom = 2;

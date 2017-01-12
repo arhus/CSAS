@@ -14,15 +14,14 @@ class TransactionHistory {
     var type: String?
     var dueDate: String?
     var processingDate: String?
-    var sender: [String: Any]?
+    var sender: [String: Any] = [:]
     
     required init(json: [String: Any]) {
-		print("json:", json)
 		self.amount = json[TransactionHistoryFields.amount.rawValue] as? [String: Any] ?? [:]
         self.type = json[TransactionHistoryFields.type.rawValue] as? String
         self.dueDate = json[TransactionHistoryFields.dueDate.rawValue] as? String
         self.processingDate = json[TransactionHistoryFields.processingDate.rawValue] as? String
-        self.sender = json[TransactionHistoryFields.sender.rawValue] as? [String: Any]
+        self.sender = json[TransactionHistoryFields.sender.rawValue] as? [String: Any] ?? [:]
     }
     
     // MARK: Transaction history

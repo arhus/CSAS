@@ -54,7 +54,9 @@ class AccountDetailTableViewController: UITableViewController {
             cell.detailTextLabel?.text = accountDetail.actualizationDate
         case 7:
             cell.textLabel?.text = "Balance"
-            cell.detailTextLabel?.text = "\(String(format:"%.2f", accountDetail.balance!)) \(accountDetail.currency!)"
+            if let balance = accountDetail.balance, let currency = accountDetail.currency {
+                cell.detailTextLabel?.text = "\(String(format:"%.2f", balance)) \(currency)"
+            }
         case 8:
             cell.textLabel?.text = "IBAN"
             cell.detailTextLabel?.text = accountDetail.iban
