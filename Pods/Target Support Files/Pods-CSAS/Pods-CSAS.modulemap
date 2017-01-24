@@ -1,0 +1,6 @@
+framework module Pods_CSAS {
+  umbrella header "Pods-CSAS-umbrella.h"
+
+  export *
+  module * { export * }
+}
